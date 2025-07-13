@@ -1,0 +1,33 @@
+A Sliding Window Technique is a method of solving the problem that involves 
+subarray or substring or window.
+    *This algorithm is mainly use the privious result to computations for the next window.
+    *This technique is commonly used in algorithms like finding subarrays with a specific 
+    sum, finding the longest substring with unique characters, or solving problems that 
+    require a fixed-size window to process elements efficiently.
+    *Naive Approach - O(n k) Time and O(1) Space.
+        n-No of element present in the array or string.
+        k-it denote the no of subarray or substring to access.
+        Ex: 
+            Input  : arr[] = {100, 200, 300, 400}, k = 2
+            Output : 700
+            We get maximum sum by considering the subarray [300, 400]
+
+            Input  : arr[] = {1, 4, 2, 10, 23, 3, 1, 0, 20}, k = 4 
+            Output : 39
+            We get maximum sum by adding subarray {4, 2, 10, 23} of size 4.
+
+            Input  : arr[] = {2, 3}, k = 3
+            Output : Invalid
+            There is no subarray of size 3 as size of whole array is 2.
+    There are basically two types of sliding window:
+        1. Fixed Size Sliding Window:
+            *It is simply increasing the right and left pointer to maintain the mentioned 
+             k value until the loop end or the searching element is obtained.
+            *It have the pridefined searching length for the subarray or for substring. 
+        2. Variable Size Sliding Window:
+            *It's increasing it window length on right side by under the mentioned condition
+            incase that condition is not satisfied the length get shrink by increasing the 
+            left side end of the window.
+            *It does't have the pridefined searching length for the subarray or substring.
+Leet code problem:
+        
