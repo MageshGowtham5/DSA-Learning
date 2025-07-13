@@ -1,1 +1,38 @@
+Why DSA:
+	*It used to store the data or organize the data(which means the datum are access faster and better memory management).
+	*The algorithm is used to retrieve the data there are so much algorithm we need to choose one better algorithm.
+	[THE ABOVE CONDITION ARE CAN BE ACHIVED BY WRITING THE EFFICIENT CODE].
 
+Analysis Of Algorithm:
+	*It is a mathematical or theoritical analysis of the code which is more efficient.(This can do by asymptotic Analysis).
+	
+	Asymptotic Analysis:
+	*To measure the order of growth of the function or program in terms of the input size.
+	*This order of growth doesn't depend on the machine ,programming language, etc.
+	*No need to implement ,just we can analyze algorithm.
+	
+	Order of Growth:
+	*Based on the order of growth we can says that the algorithm is efficient or not.
+    Direct way to find the growth and compare:
+
+        c< loglogn < logn < n^1/3 < n^1/2 < n < n^2 < n^3 < n^4 < 2^n < n^n 
+
+Three types of cases of an Algorithm;
+    1.Best case
+    2.Average case
+    3.Worst case
+1.Best Case(less order of growth):
+    *It is constant because the lowest number of steps need to solve the problem.
+2.Average Case(average order of growth):
+    *Linear times required to solve a problem but not as much as the worst case.It is basically the average of the both worst 
+    and best case like: n/2(n denote the number of times need to approach).
+3.Worst case(High order of growth):
+    *This also takes the linear times but it done as much as the worst way to find the solution.
+Asymptotic Notation:
+    Big O Notation:(Exact or Upper Bound) Worst case of an algorithm.
+    *It is used to denote the exact or upper bound of the order of growth.
+    Direct way:
+        *Ignore lower order Terms.
+        *Ignore leading term constant.
+*Recursion:
+    *The function call it self again and again to solve the problem.
