@@ -1,0 +1,57 @@
+Array Data Structure:
+    why we need array?
+    *To reduce the complexity.
+    *It is store the number of items which it amount is not fixed. and it accessed using the indexes which is startes with 0.
+    *An array data structure is used to store the group of same type of element under the single variable.
+    *Array elements are stored in contiguous Memory:
+        5    23   65   75
+        ^    ^     ^    ^
+        x   x+y   x+2y  x+4y
+
+       x-> Address where array is started.
+       y-> size of on array element.
+       explain:
+        *if the first element store in the address of the 1000 and the size of on the array element is constant like y=4.
+        *Then the second element stored in the 1004,1008,1012 based on the x+y,x+2y,x+3y.
+    *Ramdom Access:
+        *Since the elements are stored in array in contiguous location we can access it in O(1) time complexity.By using the (x,x+y etc...).
+        *Cache Friendliness: Array usually fitch the iterms in near by memory to prefetch the iterms in the near by locations.It store the array of the first element and the other elements also stored in some near by memory locations(Stored in contiguous Memory) for the fast access.
+        *The other data structures(linked list,hash map,etc..) is not having the prefetching.
+Types of Arrays:
+    This classification size:
+                    1. Fixed Sized Arrays.
+                    2.Dynamic Sized Arrays.
+    1.Fixed sized arrays:
+        *The Size of the Arrays get fixed,you are not able the more values than the fixed size.
+        ex: int [] arr =new int[100];
+            int [] arr =new int[n];
+            int [] arr={1,6,8,9};
+            *In java the arrays are heap memory allocated.
+    2.Dynamic Sized Arrays:
+        *The Size of the Arrays get Changed dynamically based on the no.of inputs.
+        *we can give more inputs the size is not fixed.
+            c++:vector,java:Arraylist,Python:list.
+        *If we initialize the array of the 100 size if we enter the 101 element then the size of an array gets double it has 200 for 201 it became 400.
+        *For every doubling the size the old array get copied into the new array.
+        *Many built in operations are carried in this dynamic array like removing etc...
+
+ArrayList in Java:
+    Syntax:
+        ArrayList<Integer>al=new ArrayList<Integer>();
+    *You can add ore items it can internally resized him self.
+    *It Contains rich library functions like add,remove,present or not etc...
+        ex:     import java.util.ArrayList;
+                    class Test {
+                        public static void main(String args[]) {
+                            ArrayList<Integer> al = new ArrayList<Integer>();
+                            al.add(10);
+                            al.add(20);
+                            al.add(30);
+                            System.out.println(al);
+                        }
+                    }
+    *We can use it has an normal array by mentioning the size of an array inside ().In that way we can use normal array by using the built in functions.
+
+    
+
+
