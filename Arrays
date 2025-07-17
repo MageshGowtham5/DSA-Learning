@@ -23,16 +23,48 @@ Types of Arrays:
                     2.Dynamic Sized Arrays.
     1.Fixed sized arrays:
         *The Size of the Arrays get fixed,you are not able the more values than the fixed size.
+        *The Time complexity for the first element add in array is O(n) and for the end Theta(1) then the over all time complexity is O(n) for the fixed size array.
         ex: int [] arr =new int[100];
             int [] arr =new int[n];
             int [] arr={1,6,8,9};
             *In java the arrays are heap memory allocated.
+            Finding the largest element in the Array:
+                ex: 
+                            class Test{
+                                    static int getLargest(int arr[])
+                                    {
+                                        int n = arr.length;
+                                        for (int i = 0; i < n; i++)
+                                        {
+                                            boolean flag = true;
+                                            for (int j = 0; j < n; j++)
+                                            {
+                                                if (arr[j] > arr[i])
+                                                {
+                                                    flag = false;
+                                                    break;
+                                                }
+                                            }
+                                            if (flag == true)
+                                                return i;
+                                        }
+                                        return -1;
+                                    }
+
+                                    public static void main(String[] args)
+                                    {
+                                        int arr[] = {5, 8, 20, 10};
+                                        System.out.println(getLargest(arr));
+                                    }
+                                }
+
     2.Dynamic Sized Arrays:
         *The Size of the Arrays get Changed dynamically based on the no.of inputs.
         *we can give more inputs the size is not fixed.
             c++:vector,java:Arraylist,Python:list.
         *If we initialize the array of the 100 size if we enter the 101 element then the size of an array gets double it has 200 for 201 it became 400.
-        *For every doubling the size the old array get copied into the new array.
+        *The Time complexity for the first element add in array is O(1) and for the n+1 element is Theta(n) finally the Timecomplexity is O(1) for the dyanmic size array.
+        *For every time doubling the size the old array get copied into the new array and the memory allocation for the old array is deleted or cleared.
         *Many built in operations are carried in this dynamic array like removing etc...
 
 ArrayList in Java:
@@ -50,7 +82,49 @@ ArrayList in Java:
                             System.out.println(al);
                         }
                     }
-    *We can use it has an normal array by mentioning the size of an array inside ().In that way we can use normal array by using the built in functions.
+    *We can use it has an normal array by mentioning the size of an array inside ().In that way we can use normal array then we can using the built in functions in arraylist.
+    *In another way we can create the array in the another containers like create the array in the Hash map we can use the built in functions in the Hashmap.
+1.Finding the Largest Element:
+    code:
+            int getLargest(int arr[], int n) {
+                int largest = 0;  // assume first element is largest
+
+                for (int i = 1; i < n; i++) 
+                {
+                    if (arr[i] > arr[largest]) 
+                    {
+                        largest = i;
+                    }
+                }
+
+                return largest;
+            }
+
+2.Finding the Second Largest Element:
+    code: 
+            int secondLargest(int arr[], int n){
+                int res = -1, largest = 0;
+                for (int i = 1; i < n; i++)
+                {
+                    if (arr[i] > arr[largest])
+                    {
+                        res = largest;
+                        largest = i;
+                    }
+                    else if (arr[i] != arr[largest])
+                    {
+                        if (res == -1 || arr[i] > arr[res])
+                            res = i;
+                    }
+                }
+                return res;
+            }
+
+
+
+    
+
+
 
     
 
