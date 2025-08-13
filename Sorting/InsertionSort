@@ -1,0 +1,55 @@
+What is Insertion Sort?
+    *Insertion Sort builds the sorted array one element at a time by taking each element from 
+     the unsorted part and placing it in its correct position in the sorted part.
+    *It’s like arranging playing cards in your hand — you pick the next card and insert it in
+     to the correct spot.
+
+    Algorithm Steps:
+        1.Assume the first element is already sorted.
+        2.Pick the next element (key).
+        3.Compare key with elements in the sorted portion (left side).
+        4.Shift elements greater than key to the right.
+        5.Insert key into the correct position.
+        6.Repeat for all elements.
+    code:
+        import java.util.Arrays;
+        public class InsertionSortExample {
+            public static void main(String[] args) {
+                int[] arr = {64, 25, 12, 22, 11};
+
+                insertionSort(arr);
+
+                System.out.println("Sorted array: " + Arrays.toString(arr));
+            }
+
+            static void insertionSort(int[] arr) {
+                int n = arr.length;
+
+                for (int i = 1; i < n; i++) { 
+                    int key = arr[i];  // Element to be inserted
+                    int j = i - 1;
+
+                    // Shift elements greater than key to one position ahead
+                    while (j >= 0 && arr[j] > key) {
+                        arr[j + 1] = arr[j];
+                        j = j - 1;
+                    }
+
+                    // Place key in its correct position
+                    arr[j + 1] = key;
+                }
+            }
+        }
+
+        Dry Run Example:
+            For arr = {64, 25, 12, 22, 11}
+            Pass 1 (i=1): Key = 25 → shift 64 → [25, 64, 12, 22, 11]
+            Pass 2 (i=2): Key = 12 → shift 64, 25 → [12, 25, 64, 22, 11]
+            Pass 3 (i=3): Key = 22 → shift 64, 25 → [12, 22, 25, 64, 11]
+            Pass 4 (i=4): Key = 11 → shift 64, 25, 22, 12 → [11, 12, 22, 25, 64]
+
+    Complexity:
+        *Worst Case: O(n²) (reverse sorted)
+        *Best Case: O(n) (already sorted)
+        *Space: O(1) (in-place)
+        *Stability: Yes (equal elements remain in same order).
