@@ -1,0 +1,52 @@
+What is Collections.sort()?
+    *Collections.sort() is a static utility method in the java.util.Collections class used to sort lists.
+    *It does not work on arrays directly (for arrays, you use Arrays.sort()), but it works on anything 
+     that implements List (e.g., ArrayList, LinkedList).
+    
+    A. Natural Ordering (Comparable)
+        Your list elements must implement the Comparable interface.
+        compareTo() method defines how two elements are compared.
+        Example:
+                Collections.sort(list);
+        Internally:
+                Checks if Comparator is null.
+                If null → uses each element's compareTo() method.
+                Uses TimSort algorithm to rearrange elements.
+    B. Custom Ordering (Comparator)
+        You pass a Comparator object as the second argument.
+        compare() method defines the sorting logic.
+        Example:
+                Collections.sort(list, comparator);
+
+    Internal Implementation
+    Inside Collections.sort():
+                public static <T extends Comparable<? super T>> void sort(List<T> list) {
+                    list.sort(null); // null means use Comparable
+                }
+                public static <T> void sort(List<T> list, Comparator<? super T> c) {
+                    list.sort(c);
+                }
+            *List.sort() internally converts the list to an array, then uses TimSort.sort().
+            *TimSort → hybrid of merge sort + insertion sort (O(n log n) average).
+Advantages
+1.Simple to use — one line sorting.
+2.Stable — equal elements keep their original order.
+3.Flexible — works with both natural order and custom comparators.
+4.Optimized — TimSort is very efficient for partially sorted data.
+
+Limitations
+    Limitation	                                Explanation
+*Works only on Lists	                Cannot directly sort arrays (use Arrays.sort() for that).
+*Null elements	                        If null is present and not handled in compareTo() / compare(), it throws NullPointerException.
+*Mutates the list	                    The original list is changed; no copy is returned.
+*Requires mutual comparability	        All elements must be comparable to each other; mixing types will cause ClassCastException.
+*Performance	                        O(n log n) for general sorting; but comparison cost depends on your logic.
+
+✅ In short:
+Collections.sort() can work without you writing Comparable or Comparator only if the elements already implement Comparable.
+For anything else, you must provide comparison logic.
+
+Method	                                When to Use	                                                            Example
+No Comparator/Comparable	For built-in types that already implement Comparable.	                    Sorting Integer, String, etc.
+With Comparable	            For custom classes where you want a natural, default order.	                implements Comparable with compareTo()
+With Comparator	            When you want different sorting orders or can’t modify the class.	        Pass Comparator to Collections.sort()
