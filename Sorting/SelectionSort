@@ -1,0 +1,57 @@
+What is Selection Sort?
+    *Selection Sort works by repeatedly selecting the smallest (or largest) element from 
+     the unsorted part of the array and swapping it to its correct position in the sorted part.
+
+    Algorithm Steps
+        *Start from the first element (index 0), assume it’s the smallest.
+        *Scan the rest of the array to find the smallest element.
+        *Swap it with the first element.
+        *Move to the next index and repeat until all elements are sorted.
+    
+    code:
+        import java.util.Arrays;
+        public class SelectionSortExample {
+            public static void main(String[] args) {
+                int[] arr = {64, 25, 12, 22, 11};
+
+                selectionSort(arr);
+
+                System.out.println("Sorted array: " + Arrays.toString(arr));
+            }
+
+            static void selectionSort(int[] arr) {
+                int n = arr.length;
+
+                for (int i = 0; i < n - 1; i++) {
+                    int minIndex = i; // Assume current is smallest
+
+                    // Find index of smallest element
+                    for (int j = i + 1; j < n; j++) {
+                        if (arr[j] < arr[minIndex]) {
+                            minIndex = j;
+                        }
+                    }
+
+                    // Swap smallest with first element of unsorted part
+                    int temp = arr[minIndex];
+                    arr[minIndex] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+    Dry Run Example:
+        For arr = {64, 25, 12, 22, 11}
+        Pass 1:
+        Min = 11 → swap with 64 → [11, 25, 12, 22, 64]
+        Pass 2:
+        Min = 12 → swap with 25 → [11, 12, 25, 22, 64]
+        Pass 3:
+        Min = 22 → swap with 25 → [11, 12, 22, 25, 64]
+        Pass 4:
+        Already sorted.
+    Complexity:
+        *Worst Case: O(n²)
+        *Best Case: O(n²) (still needs comparisons even if sorted)
+        *Space: O(1) (in-place)
+        *Stability: No (may change the order of equal elements).
+
